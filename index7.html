@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Sign Up Page</h2>
+    <form name="form"action="" method="post">
+        Name:
+        <input type="text" name="username" id="id_Username" placeholder="Enter Your name">
+        <span id="id_nameErr"></span><br>
+        Password:
+        <input type="password" name="password" id="id_pass" placeholder="Enter Password">
+        <span id="id_passErr"></span><br>
+        <input type="button" value="Register" onclick="isvalid()">
+    </form>
+</body>
+<script>
+    function isvalid(){
+        let username=document.form.username.value;
+        let pass=document.form.password.value;
+        let f=true;
+        if(username.length==0)
+        {
+            //alert("Enter Username");
+            document.getElementById("id_nameErr").textContent="Please enter Username";
+            document.form.username.focus();
+            f=false;
+        }
+        else{
+            document.getElementById("id_nameErr").textContent="";
+        }
+        if(pass.length==0)
+        {
+            document.getElementById("id_passErr").textContent="Please enter Password";
+            document.form.password.focus();
+            f=false;
+        }
+        else{
+            document.getElementById("id_passErr").textContent="";
+        }
+        if(f)
+        {
+            document.form.submit();
+        }
+    }
+</script>
+</html>
